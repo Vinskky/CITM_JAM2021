@@ -8,18 +8,18 @@ public class PlayerController : MonoBehaviour
     [Range(0, 10)] [SerializeField] private float jumpForce = 0;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private Transform groundChecker;
-    [Range(0, .3f)] [SerializeField] private float movementSmother = .05f;
-
+    public Animator animator;
     private bool onGround;
     private float groundRadius = 1.0f;
     private Rigidbody2D rb;
-    private bool isLeft = false;
     private float velocity = 5.0f;
     private float fallForce = 2.5f;
     private float smallJumpForce = 2f;
     private bool jumpRequest = false;
-    private float gravityDir = 1;
-    private bool invertGravity = false;
+
+    private float gravityDir = 1.0f;
+
+    //Card variables
     public List<string> cards;
     private int cardsNumber = 0;
 
@@ -39,11 +39,7 @@ public class PlayerController : MonoBehaviour
 
         SmoothJump();
 
-        if(invertGravity)
-        {
-            gravityDir *= -1;
-            invertGravity = false;
-        }
+
 
     }
     // Update is called once per frame
@@ -79,12 +75,13 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.CompareTag("GravityZone"))
         {
-            invertGravity = true;
             
         }
     }
     private void Movement(Vector2 dir)
     {
+
+        
         rb.velocity = new Vector2(dir.x * velocity, rb.velocity.y);
     }
 
@@ -119,8 +116,16 @@ public class PlayerController : MonoBehaviour
         Destroy(card);
     }
 
+
     public int GetCardsNumber()
     {
         return cardsNumber;
     }
+    public void InvertGravity()
+    {
+        gravityDir *= -1;
+    }
 }
+
+
+
