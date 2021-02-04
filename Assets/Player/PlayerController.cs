@@ -20,9 +20,14 @@ public class PlayerController : MonoBehaviour
     private bool jumpRequest = false;
     private float gravityDir = 1;
     private bool invertGravity = false;
+
+    //Card variables
+    public List<string> cards;
+
     // Start is called before the first frame update
     void Start()
     {
+        cards = new List<string>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -68,9 +73,15 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Card")){
+            PickUpCard(collision.gameObject);
+        }
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "GravityZone")
+        if(collision.CompareTag("GravityZone"))
         {
             invertGravity = true;
             
@@ -105,5 +116,10 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundChecker.position, groundRadius);
+    }
+
+    private void PickUpCard(GameObject card)
+    {
+        Destroy(card);
     }
 }
