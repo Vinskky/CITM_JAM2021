@@ -67,8 +67,6 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Card")){
             PickUpCard(collision.gameObject);
-
-            cardsNumber++;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -81,7 +79,7 @@ public class PlayerController : MonoBehaviour
     private void Movement(Vector2 dir)
     {
 
-        
+        animator.SetFloat("Speed", Mathf.Abs(velocity));
         rb.velocity = new Vector2(dir.x * velocity, rb.velocity.y);
     }
 
@@ -114,6 +112,7 @@ public class PlayerController : MonoBehaviour
     private void PickUpCard(GameObject card)
     {
         Destroy(card);
+        ++cardsNumber;
     }
 
 

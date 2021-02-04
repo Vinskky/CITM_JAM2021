@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class AbilityCooldown : MonoBehaviour
 {
-    public string abilityButtonAxisName = "Fire1";
+    public string abilityButtonAxisName = "q";
     public Image darkMask;
     public Text coolDownTextDisplay;
  
@@ -39,7 +39,7 @@ public class AbilityCooldown : MonoBehaviour
         if (coolDownComplete)
         {
             AbilityReady();
-            if (Input.GetButtonDown(abilityButtonAxisName))
+            if (Input.GetKeyDown(abilityButtonAxisName))
             {
                 ButtonTriggered();
             }
