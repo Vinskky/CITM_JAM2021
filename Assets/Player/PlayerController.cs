@@ -20,9 +20,8 @@ public class PlayerController : MonoBehaviour
     private bool jumpRequest = false;
     private float gravityDir = 1;
     private bool invertGravity = false;
-
-    //Card variables
     public List<string> cards;
+    private int cardsNumber = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -58,25 +57,22 @@ public class PlayerController : MonoBehaviour
 
         }
 
-
-            if (gravityDir <= -1)
-            {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, -180), Time.deltaTime / 0.1f);
-            }
-            else
-            {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), Time.deltaTime / 0.1f);
-            }
-
-        
-
-
+        if (gravityDir <= -1)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, -180), Time.deltaTime / 0.1f);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), Time.deltaTime / 0.1f);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Card")){
             PickUpCard(collision.gameObject);
+
+            cardsNumber++;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -121,5 +117,10 @@ public class PlayerController : MonoBehaviour
     private void PickUpCard(GameObject card)
     {
         Destroy(card);
+    }
+
+    public int GetCardsNumber()
+    {
+        return cardsNumber;
     }
 }
