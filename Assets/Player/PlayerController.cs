@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private float fallForce = 2.5f;
     private float smallJumpForce = 2f;
     private bool jumpRequest = false;
+    private float gravityDir = 1;
     private bool invertGravity = false;
     // Start is called before the first frame update
     void Start()
@@ -34,8 +35,10 @@ public class PlayerController : MonoBehaviour
 
         SmoothJump();
 
-        if(invertGravity == true){
-            rb.gravityScale *= -1;
+        if(invertGravity)
+        {
+            gravityDir *= -1;
+            invertGravity = false;
         }
 
     }
@@ -50,6 +53,16 @@ public class PlayerController : MonoBehaviour
 
         }
 
+
+            if (gravityDir <= -1)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, -180), Time.deltaTime / 0.1f);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), Time.deltaTime / 0.1f);
+            }
+
         
 
 
@@ -59,7 +72,8 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.tag == "GravityZone")
         {
-            invertGravity = !invertGravity;
+            invertGravity = true;
+            
         }
     }
     private void Movement(Vector2 dir)
@@ -69,35 +83,24 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        rb.AddForce(Vector2.up*jumpForce,ForceMode2D.Impulse);
+        rb.AddForce(gravityDir * Vector2.up*jumpForce,ForceMode2D.Impulse);
         jumpRequest = false;
     }
     private void SmoothJump()
     {
         if(rb.velocity.y < 0)
         {
-            rb.gravityScale = fallForce;
+            rb.gravityScale = gravityDir * fallForce;
         }else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
         {
-            rb.gravityScale = smallJumpForce;
+            rb.gravityScale = gravityDir * smallJumpForce;
         }
         else
         {
-            rb.gravityScale = 1f;
+            rb.gravityScale = gravityDir * 1f;
         }
     }
 
-    void Rotation()
-    {
-        if (rb.gravityScale < 0)
-        {
-            transform.eulerAngles = new Vector3(0, 0, 180f);
-        }
-        else
-        {
-            transform.eulerAngles = Vector3.zero;
-        }
-    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
