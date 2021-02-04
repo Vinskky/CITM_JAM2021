@@ -5,17 +5,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField] private float jumpForce = 600.0f;
+    [Range(0, 10)] [SerializeField] private float jumpForce = 0;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private Transform groundChecker;
     [Range(0, .3f)] [SerializeField] private float movementSmother = .05f;
 
     private bool onGround;
-    private float groundRadius = .2f;
+    private float groundRadius = 1.0f;
     private Rigidbody2D rb;
     private bool isLeft = false;
-    private Vector3 velocity = Vector3.zero;
-
+    private float velocity = 5.0f;
+    private float fallForce = 2.5f;
+    private float smallJumpForce = 2f;
+    private bool jumpRequest = false;
+    private bool invertGravity = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,32 +29,78 @@ public class PlayerController : MonoBehaviour
     {
 
         onGround = Physics2D.OverlapCircle(groundChecker.position, groundRadius, groundMask);
+        if(jumpRequest && onGround)
+        Jump();
 
-        
+        SmoothJump();
+
+        if(invertGravity == true){
+            rb.gravityScale *= -1;
+        }
+
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.D))
+        Vector2 dir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Movement(dir);
+        if (Input.GetButtonDown("Jump"))
         {
-            Movement(false);
+            jumpRequest = true;
+
         }
-        if (Input.GetKey(KeyCode.A))
+
+        
+
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "GravityZone")
         {
-            Movement(true);
+            invertGravity = !invertGravity;
+        }
+    }
+    private void Movement(Vector2 dir)
+    {
+        rb.velocity = new Vector2(dir.x * velocity, rb.velocity.y);
+    }
+
+    private void Jump()
+    {
+        rb.AddForce(Vector2.up*jumpForce,ForceMode2D.Impulse);
+        jumpRequest = false;
+    }
+    private void SmoothJump()
+    {
+        if(rb.velocity.y < 0)
+        {
+            rb.gravityScale = fallForce;
+        }else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            rb.gravityScale = smallJumpForce;
+        }
+        else
+        {
+            rb.gravityScale = 1f;
         }
     }
 
-    private void Movement(bool isLeft)
+    void Rotation()
     {
-        int direction = 1;
-        if (isLeft)
+        if (rb.gravityScale < 0)
         {
-            direction = -1;
+            transform.eulerAngles = new Vector3(0, 0, 180f);
         }
-        // Move the character by finding the target velocity
-        Vector3 targetVelocity = new Vector2(direction * 5.0f, rb.velocity.y);
-        // And then smoothing it out and applying it to the character
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, movementSmother);
+        else
+        {
+            transform.eulerAngles = Vector3.zero;
+        }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundChecker.position, groundRadius);
     }
 }
