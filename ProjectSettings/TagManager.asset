@@ -4,20 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< Updated upstream
   - GravityZone
   - Card
   - EnemyWall
   - Box
-=======
-  - Card
-  - GravityZone
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
@@ -49,10 +44,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Foreground
-    uniqueID: 200286791
-    locked: 0
-  - name: Background
-    uniqueID: 113514037
     locked: 0
