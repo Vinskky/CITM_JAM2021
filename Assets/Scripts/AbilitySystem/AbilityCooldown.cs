@@ -1,41 +1,42 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
 
 public class AbilityCooldown : MonoBehaviour
 {
+
     public string abilityButtonAxisName = "q";
     public Image darkMask;
     public Text coolDownTextDisplay;
- 
+
     [SerializeField] private Ability ability;
-    [SerializeField] private GameObject player;
-    private Image abilityImage;
+    [SerializeField] private GameObject character;
+    private Image myButtonImage;
     private float coolDownDuration;
     private float nextReadyTime;
     private float coolDownTimeLeft;
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        Initialize(ability,player);
+        Initialize(ability, character);
     }
 
-    public void Initialize(Ability selectedAbility, GameObject player)
+    public void Initialize(Ability selectedAbility, GameObject character)
     {
         ability = selectedAbility;
-        abilityImage = GetComponent<Image>();
-        abilityImage.sprite = ability.aSprite;
+        myButtonImage = GetComponent<Image>();
+        myButtonImage.sprite = ability.aSprite;
         darkMask.sprite = ability.aSprite;
         coolDownDuration = ability.aBaseCoolDown;
-        ability.Initialize(player);
+        ability.Initialize(character);
         AbilityReady();
     }
+
     // Update is called once per frame
     void Update()
     {
         bool coolDownComplete = (Time.time > nextReadyTime);
-
         if (coolDownComplete)
         {
             AbilityReady();
@@ -43,7 +44,6 @@ public class AbilityCooldown : MonoBehaviour
             {
                 ButtonTriggered();
             }
-            
         }
         else
         {
@@ -71,8 +71,6 @@ public class AbilityCooldown : MonoBehaviour
         coolDownTimeLeft = coolDownDuration;
         darkMask.enabled = true;
         coolDownTextDisplay.enabled = true;
-
         ability.TriggerAbility();
-
     }
 }

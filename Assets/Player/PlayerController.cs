@@ -61,6 +61,9 @@ public class PlayerController : MonoBehaviour
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), Time.deltaTime / 0.1f);
         }
+        animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+                bool flip = dir.x < 0 ? true : false;
+        this.gameObject.GetComponent<SpriteRenderer>().flipX = flip;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -79,8 +82,9 @@ public class PlayerController : MonoBehaviour
     private void Movement(Vector2 dir)
     {
 
-        animator.SetFloat("Speed", Mathf.Abs(velocity));
         rb.velocity = new Vector2(dir.x * velocity, rb.velocity.y);
+
+
     }
 
     private void Jump()
@@ -124,6 +128,7 @@ public class PlayerController : MonoBehaviour
     {
         gravityDir *= -1;
     }
+
 }
 
 
