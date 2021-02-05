@@ -377,7 +377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 320953462}
   - component: {fileID: 320953461}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlatformRoot
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -1054,6 +1054,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2448927630279217310, guid: 371410bf4655ea24c82f50518c3ab473, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2448927630279217310, guid: 371410bf4655ea24c82f50518c3ab473, type: 3}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2448927630279217310, guid: 371410bf4655ea24c82f50518c3ab473, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 2811033805663255183, guid: 371410bf4655ea24c82f50518c3ab473, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1217,11 +1229,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8167771226150644940, guid: 35b0efc2ccab43c4e9b1f1b4439653aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.15
+      value: -12.78
       objectReference: {fileID: 0}
     - target: {fileID: 8167771226150644940, guid: 35b0efc2ccab43c4e9b1f1b4439653aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.06
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8167771226150644940, guid: 35b0efc2ccab43c4e9b1f1b4439653aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1373,6 +1385,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3209439164888304089, guid: 5fc011c5c214d7547af04507b8a0f703, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209439164888304089, guid: 5fc011c5c214d7547af04507b8a0f703, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3209439166019922645, guid: 5fc011c5c214d7547af04507b8a0f703, type: 3}
       propertyPath: m_LocalScale.y
       value: 5
@@ -1517,7 +1537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7294369133733320903, guid: 18e3d1f3d04d8cb459d6c4cece8d34a4, type: 3}
       propertyPath: m_TagString
-      value: Weapon
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18e3d1f3d04d8cb459d6c4cece8d34a4, type: 3}
@@ -1596,6 +1616,10 @@ PrefabInstance:
     - target: {fileID: 3524180171538331173, guid: abffe190bd542ec4abe4dbb2d2eeee57, type: 3}
       propertyPath: m_Name
       value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 3524180171538331173, guid: abffe190bd542ec4abe4dbb2d2eeee57, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3524180171538331173, guid: abffe190bd542ec4abe4dbb2d2eeee57, type: 3}
       propertyPath: m_TagString

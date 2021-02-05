@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private uint cardsNumber = 0;
     private uint lifes = 5;
     bool gravityAbility = false;
+    bool gravityRequest = false;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,12 @@ public class PlayerController : MonoBehaviour
         Jump();
 
         SmoothJump();
+        if (gravityAbility && gravityRequest)
+        {
+
+            InvertGravity();
+            gravityRequest = false;
+        }
     }
 
     // Update is called once per frame
@@ -78,7 +85,8 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.CompareTag("GravityZone") && gravityAbility)
         {
-            InvertGravity();
+            gravityRequest = true;
+
         }
     }
 
