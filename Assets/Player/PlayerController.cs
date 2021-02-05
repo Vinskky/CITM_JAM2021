@@ -25,21 +25,13 @@ public class PlayerController : MonoBehaviour
     bool gravityAbility = false;
     bool gravityRequest = false;
     Vector3 lastCheckpointPos = Vector3.zero;
-<<<<<<< Updated upstream
     private GameObject[] boxList;
     private bool isLeft = false;
-=======
-<<<<<<< HEAD
     public Transform attackPoint;
     public float attackRange = 50f;
     public LayerMask enemyLayers;
     public float attackRate = 2f;
     float nextAttackTime = 0f;
-=======
-    private GameObject[] boxList;
-    private bool isLeft = false;
->>>>>>> 3df88bb9d84e60144611fe5a0e493fdb0936e17b
->>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()
@@ -110,9 +102,6 @@ public class PlayerController : MonoBehaviour
                 item.GetComponent<BoxScript>().ResetPos();
             }
             rb.position = lastCheckpointPos;
-           
-<<<<<<< Updated upstream
-=======
         }
     }
 
@@ -129,7 +118,6 @@ public class PlayerController : MonoBehaviour
         {
             // Enemy die
             enemy.GetComponent<EnemyController>().Die();
->>>>>>> Stashed changes
         }
     }
 
