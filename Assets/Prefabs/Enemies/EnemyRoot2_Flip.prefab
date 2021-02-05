@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8036643158133310986}
   m_Layer: 0
-  m_Name: EnemyRoot2_Flip 1
+  m_Name: EnemyRoot2_Flip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 7600245146824649755}
   - component: {fileID: 7600245146824649753}
   - component: {fileID: 5040453066418064347}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,11 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ea1c78734b0a54ab5a57dea68d2eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flip: 0
-  damageMask:
-    serializedVersion: 2
-    m_Bits: 0
-  enemy: {fileID: 3992029839988512230}
+  enemyRoot: {fileID: 0}
 --- !u!95 &5040453066418064347
 Animator:
   serializedVersion: 3

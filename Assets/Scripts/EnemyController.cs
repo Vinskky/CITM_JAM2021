@@ -38,13 +38,10 @@ public class EnemyController : MonoBehaviour
 
         if (collision.CompareTag("Weapon"))
         {
-            Die(enemyRoot);
+            Die();
         }
     }
-
-  
-
-    private void Die(GameObject enemyRoot)
+    public void Die()
     {
         Destroy(enemyRoot);
     }

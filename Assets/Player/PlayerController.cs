@@ -25,8 +25,21 @@ public class PlayerController : MonoBehaviour
     bool gravityAbility = false;
     bool gravityRequest = false;
     Vector3 lastCheckpointPos = Vector3.zero;
+<<<<<<< Updated upstream
     private GameObject[] boxList;
     private bool isLeft = false;
+=======
+<<<<<<< HEAD
+    public Transform attackPoint;
+    public float attackRange = 50f;
+    public LayerMask enemyLayers;
+    public float attackRate = 2f;
+    float nextAttackTime = 0f;
+=======
+    private GameObject[] boxList;
+    private bool isLeft = false;
+>>>>>>> 3df88bb9d84e60144611fe5a0e493fdb0936e17b
+>>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +50,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-  
         onGround = Physics2D.OverlapCircle(groundChecker.position, groundRadius, groundMask);
         if(jumpRequest && onGround)
         Jump();
@@ -45,7 +57,6 @@ public class PlayerController : MonoBehaviour
         SmoothJump();
         if (gravityAbility && gravityRequest)
         {
-
             InvertGravity();
             gravityRequest = false;
         }
@@ -66,7 +77,15 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jumpRequest = true;
+        }
 
+        if (Time.time >= nextAttackTime)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Attack();
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
         }
 
         if (gravityDir <= -1)
@@ -92,6 +111,25 @@ public class PlayerController : MonoBehaviour
             }
             rb.position = lastCheckpointPos;
            
+<<<<<<< Updated upstream
+=======
+        }
+    }
+
+    private void Attack()
+    {
+        // Play an attack animation
+        animator.SetTrigger("Attack");
+
+        // Detect enemies in range of attack
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        // Damage them
+        foreach(Collider2D enemy in hitEnemies)
+        {
+            // Enemy die
+            enemy.GetComponent<EnemyController>().Die();
+>>>>>>> Stashed changes
         }
     }
 

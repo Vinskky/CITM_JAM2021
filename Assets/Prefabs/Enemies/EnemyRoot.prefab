@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3209439164888304089}
   - component: {fileID: 3209439164888304091}
   - component: {fileID: 869985817}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ea1c78734b0a54ab5a57dea68d2eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyRoot: {fileID: 0}
+  enemyRoot: {fileID: 8256717314548576292}
 --- !u!95 &869985817
 Animator:
   serializedVersion: 3
