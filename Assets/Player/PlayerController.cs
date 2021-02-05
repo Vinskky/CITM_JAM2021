@@ -58,6 +58,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(lifes <= 0)
+        {
+            Die();
+        }
         Vector2 dir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         if (dir.x*gravityDir < 0)
         {
@@ -98,11 +102,7 @@ public class PlayerController : MonoBehaviour
        
         if (Input.GetKeyDown("c"))
         {
-            foreach (var item in boxList)
-            {
-                item.GetComponent<BoxScript>().ResetPos();
-            }
-            rb.position = lastCheckpointPos;
+            CheckpointTouched();
         }
     }
 
@@ -134,7 +134,11 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("EndingScreen");
         }
 
-
+        if (collision.CompareTag("Enemy"))
+        {
+            SubstractLifes(1);
+            CheckpointTouched();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -245,5 +249,19 @@ public class PlayerController : MonoBehaviour
     public void SetCheckpointPos(Vector3 position)
     {
         lastCheckpointPos = position;
+    }
+
+    public void Die()
+    {
+        SceneManager.LoadScene("EndingScreen");
+    }
+
+    public void CheckpointTouched()
+    {
+        foreach (var item in boxList)
+        {
+            item.GetComponent<BoxScript>().ResetPos();
+        }
+        rb.position = lastCheckpointPos;
     }
 }
