@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case "Win":
-                SceneManager.LoadScene("MainMenu");
+                SceneManager.LoadScene("WinningScreen");
                 break;
             default:
                 break;
