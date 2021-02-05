@@ -162,4 +162,8 @@ public class PlayerController : MonoBehaviour
     {
         return lifes;
     }
+    public void SetVelocity(float velocity)
+    {
+        this.velocity = velocity;
+    }
 }

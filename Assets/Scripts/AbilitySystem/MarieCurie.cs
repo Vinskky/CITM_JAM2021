@@ -16,5 +16,6 @@ public class MarieCurie : Ability
     public override void TriggerAbility()
     {
         player.GetComponent<PlayerController>().SubstractLifes(1);
+        player.GetComponent<PlayerController>().SetVelocity(10);
     }
 }
