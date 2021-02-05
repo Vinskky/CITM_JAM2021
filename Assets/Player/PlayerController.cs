@@ -20,19 +20,19 @@ public class PlayerController : MonoBehaviour
     private bool jumpRequest = false;
     private float gravityDir = 1.0f;
     [SerializeField] private List<Image> abilities;
-    //Card variables
-    public List<string> cards;
     private uint cardsNumber = 0;
     private uint lifes = 5;
     bool gravityAbility = false;
     bool gravityRequest = false;
     Vector3 lastCheckpointPos = Vector3.zero;
+    private GameObject[] boxList;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        cards = new List<string>();
         rb = GetComponent<Rigidbody2D>();
+        boxList = GameObject.FindGameObjectsWithTag("Box");
     }
 
     private void FixedUpdate()
@@ -77,7 +77,12 @@ public class PlayerController : MonoBehaviour
         this.gameObject.GetComponent<SpriteRenderer>().flipX = flip;
         if (Input.GetKeyDown("c"))
         {
+            foreach (var item in boxList)
+            {
+                item.GetComponent<BoxScript>().ResetPos();
+            }
             rb.position = lastCheckpointPos;
+           
         }
     }
 
