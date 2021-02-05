@@ -18,6 +18,6 @@ public class CardsDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cardsText.text = "CARDS: " + player.GetComponent<PlayerController>().GetCardsNumber();
+        cardsText.text = "Cards: " + player.GetComponent<PlayerController>().GetCardsNumber();
     }
 }
