@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (item.gameObject.name.Equals("PlatformAbility"))
                         item.gameObject.SetActive(true);
-                    gravityAbility = true;
+                        gravityAbility = true;
                 }
                 break;
             case "Radioactive":
