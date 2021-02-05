@@ -132,8 +132,6 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene("EndingScreen");
         }
-
-        if(collision.)
     }
 
     private void OnTriggerExit2D(Collider2D collision)
