@@ -32,6 +32,7 @@ public class ToggleManager : MonoBehaviour
     public void AccessibilityTgl()
     {
         // TODO
+
     }
 
     // Start is called before the first frame update
