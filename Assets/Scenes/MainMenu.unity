@@ -745,7 +745,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1661569687}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1559938653264469866, guid: b5c52c90289c464429a1701600842936, type: 3}
       propertyPath: m_Name
@@ -757,15 +757,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5419598688879735967, guid: b5c52c90289c464429a1701600842936, type: 3}
       propertyPath: m_LocalScale.x
-      value: 60.399998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5419598688879735967, guid: b5c52c90289c464429a1701600842936, type: 3}
       propertyPath: m_LocalScale.y
-      value: 60.399998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5419598688879735967, guid: b5c52c90289c464429a1701600842936, type: 3}
       propertyPath: m_LocalScale.z
-      value: 60.399998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5419598688879735967, guid: b5c52c90289c464429a1701600842936, type: 3}
       propertyPath: m_LocalPosition.x
@@ -773,11 +773,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5419598688879735967, guid: b5c52c90289c464429a1701600842936, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 60.399998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5419598688879735967, guid: b5c52c90289c464429a1701600842936, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6040
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 5419598688879735967, guid: b5c52c90289c464429a1701600842936, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2476,7 +2476,6 @@ RectTransform:
   - {fileID: 2095456301}
   - {fileID: 1497656444}
   - {fileID: 2084635558}
-  - {fileID: 1772816544}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2485,11 +2484,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!4 &1772816544 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5419598688879735967, guid: b5c52c90289c464429a1701600842936, type: 3}
-  m_PrefabInstance: {fileID: 430390992}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1775298643
 GameObject:
   m_ObjectHideFlags: 0
