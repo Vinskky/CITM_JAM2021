@@ -209,6 +209,10 @@ MonoBehaviour:
     m_Bits: 8
   groundChecker: {fileID: 4494903012261787369}
   animator: {fileID: 7294369133733320922}
+  abilities:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   cards: []
 --- !u!50 &7294369133733320923
 Rigidbody2D:

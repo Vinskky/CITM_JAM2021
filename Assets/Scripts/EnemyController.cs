@@ -5,24 +5,19 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     bool right = false;
-    private float damageRadius = 0.5f;
-    [SerializeField] private LayerMask damageMask;
+
     private Rigidbody2D rb;
-    [SerializeField]private GameObject enemy;
+    [SerializeField] private GameObject enemyRoot;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Physics2D.OverlapCircle(rb.transform.position, damageRadius, damageMask))
-        {
-            Die();
-        }
+
         if (right == true)
         {
            rb.transform.position = new Vector3(rb.transform.position.x + 5 * Time.deltaTime, rb.transform.position.y, rb.transform.position.z);
@@ -31,6 +26,8 @@ public class EnemyController : MonoBehaviour
         {
             rb.transform.position = new Vector3(rb.transform.position.x - 5 * Time.deltaTime, rb.transform.position.y, rb.transform.position.z);
         }
+
+        this.gameObject.GetComponent<SpriteRenderer>().flipX = right;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,16 +36,17 @@ public class EnemyController : MonoBehaviour
         {
             right = !right;
         }
+
         if (collision.CompareTag("Weapon"))
         {
-            Die();
+            Die(enemyRoot);
         }
     }
 
   
 
-    private void Die()
+    private void Die(GameObject enemyRoot)
     {
-        Destroy(enemy);
+        Destroy(enemyRoot);
     }
 }

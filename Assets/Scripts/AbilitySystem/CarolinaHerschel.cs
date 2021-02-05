@@ -7,7 +7,7 @@ public class CarolinaHerschel : Ability
 {
 
     private GameObject[] platforms;
-    public bool moving = false;
+
     public override void Initialize(GameObject obj)
     {
         platforms = GameObject.FindGameObjectsWithTag("Platform");
@@ -17,16 +17,16 @@ public class CarolinaHerschel : Ability
     {
         foreach (GameObject item in platforms)
         {
-            if (moving) 
+            if (item.GetComponent<Animator>().GetBool("Move") == true) 
             { 
                 item.GetComponent<Animator>().SetBool("Move", false);
                 //item.SetActive(false);
-                moving = false;
+
             } else 
             { 
                 item.GetComponent<Animator>().SetBool("Move", true);
                 //item.SetActive(true);
-                moving = true;
+
             }
 
         }

@@ -21,8 +21,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private List<Image> abilities;
     //Card variables
     public List<string> cards;
-    private int cardsNumber = 0;
+    private uint cardsNumber = 0;
     private uint lifes = 5;
+    bool gravityAbility = false;
+    bool gravityRequest = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,11 +35,18 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+  
         onGround = Physics2D.OverlapCircle(groundChecker.position, groundRadius, groundMask);
         if(jumpRequest && onGround)
         Jump();
 
         SmoothJump();
+        if (gravityAbility && gravityRequest)
+        {
+
+            InvertGravity();
+            gravityRequest = false;
+        }
     }
 
     // Update is called once per frame
@@ -61,7 +70,7 @@ public class PlayerController : MonoBehaviour
         }
 
         animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-                bool flip = dir.x < 0 ? true : false;
+        bool flip = gravityDir*dir.x < 0 ? true : false;
         this.gameObject.GetComponent<SpriteRenderer>().flipX = flip;
     }
 
@@ -74,9 +83,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.CompareTag("GravityZone"))
+        if(collision.CompareTag("GravityZone") && gravityAbility)
         {
-            
+            gravityRequest = true;
+
         }
     }
 
@@ -121,6 +131,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if(item.gameObject.name.Equals("BoxAbility"))
                     item.gameObject.SetActive(true);
+                    this.tag = "Weapon";
                 }
                 break;
             case "Platform":
@@ -128,6 +139,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (item.gameObject.name.Equals("PlatformAbility"))
                         item.gameObject.SetActive(true);
+                        gravityAbility = true;
                 }
                 break;
             case "Radioactive":
@@ -145,7 +157,7 @@ public class PlayerController : MonoBehaviour
         ++cardsNumber;
     }
 
-    public int GetCardsNumber()
+    public uint GetCardsNumber()
     {
         return cardsNumber;
     }
@@ -162,7 +174,7 @@ public class PlayerController : MonoBehaviour
     {
         this.lifes -= lifes;
     }
-    public uint GetLifes()
+    public uint GetLifesNumber()
     {
         return lifes;
     }
