@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private List<Image> abilities;
     //Card variables
     public List<string> cards;
-    private int cardsNumber = 0;
+    private uint cardsNumber = 0;
     private uint lifes = 5;
 
     // Start is called before the first frame update
@@ -145,7 +145,7 @@ public class PlayerController : MonoBehaviour
         ++cardsNumber;
     }
 
-    public int GetCardsNumber()
+    public uint GetCardsNumber()
     {
         return cardsNumber;
     }
@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour
     {
         this.lifes -= lifes;
     }
-    public uint GetLifes()
+    public uint GetLifesNumber()
     {
         return lifes;
     }
