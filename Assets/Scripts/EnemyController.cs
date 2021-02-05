@@ -9,11 +9,11 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private LayerMask damageMask;
     private Rigidbody2D rb;
     [SerializeField]private GameObject enemy;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
     }
 
     // Update is called once per frame
@@ -31,6 +31,8 @@ public class EnemyController : MonoBehaviour
         {
             rb.transform.position = new Vector3(rb.transform.position.x - 5 * Time.deltaTime, rb.transform.position.y, rb.transform.position.z);
         }
+
+        this.gameObject.GetComponent<SpriteRenderer>().flipX = right;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,6 +41,7 @@ public class EnemyController : MonoBehaviour
         {
             right = !right;
         }
+
         if (collision.CompareTag("Weapon"))
         {
             Die();
