@@ -29,8 +29,8 @@ CONTROLS:
 	Left mouse button:	Pillow attack
 	E: move wood box
 	Q:		activate star-platforms
-  
-  FUNCTIONALITY:
+	
+	FUNTIONALITY:
 	ESC 		pause	
   
 	Mouse hover onto cards to see better description.
