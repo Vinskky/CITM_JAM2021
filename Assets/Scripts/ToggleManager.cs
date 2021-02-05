@@ -5,15 +5,23 @@ using UnityEngine;
 public class ToggleManager : MonoBehaviour
 {
     [SerializeReference] private GameObject optionsMenu;
+    [SerializeReference] private GameObject music;
 
     public void MusicTgl()
     {
-
+        if (music.activeSelf == true)
+        {
+            music.SetActive(false);
+        }
+        else
+        {
+            music.SetActive(true);
+        }
     }
 
     public void FxTgl()
     {
-
+        // TODO
     }
 
     public void FullscreenTgl()
@@ -23,10 +31,8 @@ public class ToggleManager : MonoBehaviour
 
     public void AccessibilityTgl()
     {
-
+        // TODO
     }
-
-
 
     // Start is called before the first frame update
     void Start()

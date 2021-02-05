@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public List<string> cards;
     private int cardsNumber = 0;
     private uint lifes = 5;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,16 +33,13 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         onGround = Physics2D.OverlapCircle(groundChecker.position, groundRadius, groundMask);
         if(jumpRequest && onGround)
         Jump();
 
         SmoothJump();
-
-
-
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -61,6 +59,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), Time.deltaTime / 0.1f);
         }
+
         animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
                 bool flip = dir.x < 0 ? true : false;
         this.gameObject.GetComponent<SpriteRenderer>().flipX = flip;
@@ -72,6 +71,7 @@ public class PlayerController : MonoBehaviour
             PickUpCard(collision.gameObject);
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.CompareTag("GravityZone"))
@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviour
             
         }
     }
+
     private void Movement(Vector2 dir)
     {
 
@@ -97,7 +98,8 @@ public class PlayerController : MonoBehaviour
         if(rb.velocity.y < 0)
         {
             rb.gravityScale = gravityDir * fallForce;
-        }else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+        }
+        else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
         {
             rb.gravityScale = gravityDir * smallJumpForce;
         }
@@ -134,10 +136,10 @@ public class PlayerController : MonoBehaviour
             default:
                 break;
         }
+
         Destroy(card);
         ++cardsNumber;
     }
-
 
     public int GetCardsNumber()
     {
@@ -165,6 +167,3 @@ public class PlayerController : MonoBehaviour
         this.velocity = velocity;
     }
 }
-
-
-
