@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -16,12 +17,12 @@ public class PlayerController : MonoBehaviour
     private float fallForce = 2.5f;
     private float smallJumpForce = 2f;
     private bool jumpRequest = false;
-
     private float gravityDir = 1.0f;
-
+    [SerializeField] private List<Image> abilities;
     //Card variables
     public List<string> cards;
     private int cardsNumber = 0;
+    private uint lifes = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -32,16 +33,13 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         onGround = Physics2D.OverlapCircle(groundChecker.position, groundRadius, groundMask);
         if(jumpRequest && onGround)
         Jump();
 
         SmoothJump();
-
-
-
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -61,6 +59,10 @@ public class PlayerController : MonoBehaviour
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), Time.deltaTime / 0.1f);
         }
+
+        animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+                bool flip = dir.x < 0 ? true : false;
+        this.gameObject.GetComponent<SpriteRenderer>().flipX = flip;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -69,6 +71,7 @@ public class PlayerController : MonoBehaviour
             PickUpCard(collision.gameObject);
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.CompareTag("GravityZone"))
@@ -76,11 +79,13 @@ public class PlayerController : MonoBehaviour
             
         }
     }
+
     private void Movement(Vector2 dir)
     {
 
-        animator.SetFloat("Speed", Mathf.Abs(velocity));
         rb.velocity = new Vector2(dir.x * velocity, rb.velocity.y);
+
+
     }
 
     private void Jump()
@@ -93,7 +98,8 @@ public class PlayerController : MonoBehaviour
         if(rb.velocity.y < 0)
         {
             rb.gravityScale = gravityDir * fallForce;
-        }else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+        }
+        else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
         {
             rb.gravityScale = gravityDir * smallJumpForce;
         }
@@ -111,10 +117,29 @@ public class PlayerController : MonoBehaviour
 
     private void PickUpCard(GameObject card)
     {
+        switch (card.GetComponent<CardScript>().cardType)
+        {
+            case "Box":
+                foreach (Image item in abilities)
+                {
+                    if(item.gameObject.name.Equals("BoxAbility"))
+                    item.gameObject.SetActive(true);
+                }
+                break;
+            case "Platform":
+                foreach (Image item in abilities)
+                {
+                    if (item.gameObject.name.Equals("PlatformAbility"))
+                        item.gameObject.SetActive(true);
+                }
+                break;
+            default:
+                break;
+        }
+
         Destroy(card);
         ++cardsNumber;
     }
-
 
     public int GetCardsNumber()
     {
@@ -124,7 +149,21 @@ public class PlayerController : MonoBehaviour
     {
         gravityDir *= -1;
     }
+
+    public void AddLifes(uint lifes)
+    {
+        this.lifes += lifes;
+    }
+    public void SubstractLifes(uint lifes)
+    {
+        this.lifes -= lifes;
+    }
+    public uint GetLifes()
+    {
+        return lifes;
+    }
+    public void SetVelocity(float velocity)
+    {
+        this.velocity = velocity;
+    }
 }
-
-
-

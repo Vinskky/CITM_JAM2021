@@ -20,12 +20,12 @@ public class CarolinaHerschel : Ability
             if (moving) 
             { 
                 item.GetComponent<Animator>().SetBool("Move", false);
-                item.SetActive(false);
+                //item.SetActive(false);
                 moving = false;
             } else 
             { 
                 item.GetComponent<Animator>().SetBool("Move", true);
-                item.SetActive(true);
+                //item.SetActive(true);
                 moving = true;
             }
 
