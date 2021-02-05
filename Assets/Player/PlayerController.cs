@@ -202,6 +202,9 @@ public class PlayerController : MonoBehaviour
                         item.gameObject.SetActive(true);
                 }
                 break;
+            case "Win":
+                SceneManager.LoadScene("MainMenu");
+                break;
             default:
                 break;
         }
