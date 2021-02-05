@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2810e2abdc68c449b1b80e1b43ca5f, type: 3}
   m_Name: Marie Maynard Ability
   m_EditorClassIdentifier: 
-  aName: New Ability
-  aSprite: {fileID: 0}
+  aName: MarieMaynard
+  aSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   aSound: {fileID: 0}
   aBaseCoolDown: 1

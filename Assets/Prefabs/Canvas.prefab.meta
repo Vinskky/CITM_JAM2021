@@ -1,20 +1,7 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream:Assets/Prefabs/Canvas.prefab.meta
 guid: 447db1ae05138544ebe14d7f4eb932c0
 PrefabImporter:
   externalObjects: {}
-=======
-guid: 76add44369630a64a8e63da5472c2ddd
-NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 4890085278179872738
->>>>>>> Stashed changes:Assets/Colorblind Effect/Demo/Test SceneSettings.lighting.meta
-=======
-guid: 027aad224f86464418c60285318d335e
-PrefabImporter:
-  externalObjects: {}
->>>>>>> Stashed changes
   userData: 
   assetBundleName: 
   assetBundleVariant: 
