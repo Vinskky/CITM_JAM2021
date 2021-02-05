@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public List<string> cards;
     private uint cardsNumber = 0;
     private uint lifes = 5;
+    bool gravityAbility = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+  
         onGround = Physics2D.OverlapCircle(groundChecker.position, groundRadius, groundMask);
         if(jumpRequest && onGround)
         Jump();
@@ -74,9 +76,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.CompareTag("GravityZone"))
+        if(collision.CompareTag("GravityZone") && gravityAbility)
         {
-            
+            InvertGravity();
         }
     }
 
@@ -121,6 +123,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if(item.gameObject.name.Equals("BoxAbility"))
                     item.gameObject.SetActive(true);
+                    this.tag = "Weapon";
                 }
                 break;
             case "Platform":
@@ -128,6 +131,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (item.gameObject.name.Equals("PlatformAbility"))
                         item.gameObject.SetActive(true);
+                    gravityAbility = true;
                 }
                 break;
             case "Radioactive":
