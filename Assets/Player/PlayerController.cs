@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     bool gravityRequest = false;
     Vector3 lastCheckpointPos = Vector3.zero;
     private GameObject[] boxList;
-
+    private bool isLeft = false;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +55,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector2 dir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (dir.x*gravityDir < 0)
+        {
+            isLeft = true;
+        }else if (dir.x*gravityDir > 0)
+        {
+            isLeft = false;
+        }
         Movement(dir);
         if (Input.GetButtonDown("Jump"))
         {
@@ -73,8 +80,10 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
         animator.SetBool("onGround", onGround);
-        bool flip = gravityDir*dir.x < 0 ? true : false;
-        this.gameObject.GetComponent<SpriteRenderer>().flipX = flip;
+      
+       this.gameObject.GetComponent<SpriteRenderer>().flipX = isLeft;
+        
+       
         if (Input.GetKeyDown("c"))
         {
             foreach (var item in boxList)
@@ -109,6 +118,7 @@ public class PlayerController : MonoBehaviour
 
     private void Movement(Vector2 dir)
     {
+        
         rb.velocity = new Vector2(dir.x * velocity, rb.velocity.y);
     }
 
@@ -171,7 +181,7 @@ public class PlayerController : MonoBehaviour
         }
 
         Destroy(card);
-        ++cardsNumber;
+        cardsNumber += 1;
     }
 
     public uint GetCardsNumber()
