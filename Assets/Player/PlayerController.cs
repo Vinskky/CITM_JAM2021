@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     private uint lifes = 5;
     bool gravityAbility = false;
     bool gravityRequest = false;
-
+    Vector3 lastCheckpointPos = Vector3.zero;
     // Start is called before the first frame update
     void Start()
     {
@@ -73,6 +73,10 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("onGround", onGround);
         bool flip = gravityDir*dir.x < 0 ? true : false;
         this.gameObject.GetComponent<SpriteRenderer>().flipX = flip;
+        if (Input.GetKeyDown("c"))
+        {
+            rb.position = lastCheckpointPos;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -182,5 +186,10 @@ public class PlayerController : MonoBehaviour
     public void SetVelocity(float velocity)
     {
         this.velocity = velocity;
+    }
+
+    public void SetCheckpointPos(Vector3 position)
+    {
+        lastCheckpointPos = position;
     }
 }
