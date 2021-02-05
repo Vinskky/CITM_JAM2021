@@ -133,6 +133,13 @@ public class PlayerController : MonoBehaviour
                         item.gameObject.SetActive(true);
                 }
                 break;
+            case "Radioactive":
+                foreach (Image item in abilities)
+                {
+                    if (item.gameObject.name.Equals("RadioactiveAbility"))
+                        item.gameObject.SetActive(true);
+                }
+                break;
             default:
                 break;
         }
