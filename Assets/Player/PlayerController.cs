@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -16,13 +17,12 @@ public class PlayerController : MonoBehaviour
     private float fallForce = 2.5f;
     private float smallJumpForce = 2f;
     private bool jumpRequest = false;
-
     private float gravityDir = 1.0f;
-
+    [SerializeField] private List<Image> abilities;
     //Card variables
     public List<string> cards;
     private int cardsNumber = 0;
-
+    private uint lifes = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -115,6 +115,25 @@ public class PlayerController : MonoBehaviour
 
     private void PickUpCard(GameObject card)
     {
+        switch (card.GetComponent<CardScript>().cardType)
+        {
+            case "Box":
+                foreach (Image item in abilities)
+                {
+                    if(item.gameObject.name.Equals("BoxAbility"))
+                    item.gameObject.SetActive(true);
+                }
+                break;
+            case "Platform":
+                foreach (Image item in abilities)
+                {
+                    if (item.gameObject.name.Equals("PlatformAbility"))
+                        item.gameObject.SetActive(true);
+                }
+                break;
+            default:
+                break;
+        }
         Destroy(card);
         ++cardsNumber;
     }
@@ -129,6 +148,18 @@ public class PlayerController : MonoBehaviour
         gravityDir *= -1;
     }
 
+    public void AddLifes(uint lifes)
+    {
+        this.lifes += lifes;
+    }
+    public void SubstractLifes(uint lifes)
+    {
+        this.lifes -= lifes;
+    }
+    public uint GetLifes()
+    {
+        return lifes;
+    }
 }
 
 
