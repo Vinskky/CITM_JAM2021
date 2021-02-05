@@ -7,6 +7,9 @@ TagManager:
   - Platform
   - Card
   - Box
+  - GravityZone
+  - EnemyWall
+  - Weapon
   layers:
   - Default
   - TransparentFX
