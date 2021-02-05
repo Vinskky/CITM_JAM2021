@@ -17,6 +17,7 @@ public class MarieMaynardAbility : Ability
         foreach (GameObject item in boxes)
         {
             item.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            item.GetComponent<Rigidbody2D>().mass = 3;
         }
     }
 }

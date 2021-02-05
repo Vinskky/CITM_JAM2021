@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         boxList = GameObject.FindGameObjectsWithTag("Box");
+        lastCheckpointPos = this.gameObject.transform.position;
     }
 
     private void FixedUpdate()
