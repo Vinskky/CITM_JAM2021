@@ -15,14 +15,16 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (right == true)
+        if (right)
         {
             gameObject.transform.position = new Vector3(gameObject.transform.position.x + 5 * Time.deltaTime, gameObject.transform.position.y, gameObject.transform.position.z);
         }
-        else if (right == false)
+        else if (!right)
         {
             gameObject.transform.position = new Vector3(gameObject.transform.position.x - 5 * Time.deltaTime, gameObject.transform.position.y, gameObject.transform.position.z);
         }
+
+        this.gameObject.GetComponent<SpriteRenderer>().flipX = right;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
