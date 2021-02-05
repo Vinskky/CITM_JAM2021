@@ -2580,15 +2580,15 @@ PrefabInstance:
     - target: {fileID: 6928622991859885593, guid: 18e3d1f3d04d8cb459d6c4cece8d34a4, type: 3}
       propertyPath: abilities.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 787629290}
     - target: {fileID: 6928622991859885593, guid: 18e3d1f3d04d8cb459d6c4cece8d34a4, type: 3}
       propertyPath: abilities.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1368001112}
     - target: {fileID: 6928622991859885593, guid: 18e3d1f3d04d8cb459d6c4cece8d34a4, type: 3}
       propertyPath: abilities.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2055314231}
     - target: {fileID: 7294369133733320901, guid: 18e3d1f3d04d8cb459d6c4cece8d34a4, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -5241,6 +5241,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 13.21, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &787629290 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6374239359183885799, guid: 447db1ae05138544ebe14d7f4eb932c0, type: 3}
+  m_PrefabInstance: {fileID: 1600154000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &796584341
 GameObject:
   m_ObjectHideFlags: 0
@@ -9748,6 +9759,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1368001112 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6374239359704333333, guid: 447db1ae05138544ebe14d7f4eb932c0, type: 3}
+  m_PrefabInstance: {fileID: 1600154000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1390948398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15576,6 +15598,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!114 &2055314231 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6374239359600143871, guid: 447db1ae05138544ebe14d7f4eb932c0, type: 3}
+  m_PrefabInstance: {fileID: 1600154000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2067893013
 GameObject:
   m_ObjectHideFlags: 0
