@@ -82,10 +82,7 @@ public class PlayerController : MonoBehaviour
 
     private void Movement(Vector2 dir)
     {
-
         rb.velocity = new Vector2(dir.x * velocity, rb.velocity.y);
-
-
     }
 
     private void Jump()
