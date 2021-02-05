@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public class PlayerController : MonoBehaviour
 {
-
     [Range(0, 10)] [SerializeField] private float jumpForce = 0;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private Transform groundChecker;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     bool gravityAbility = false;
     bool gravityRequest = false;
     Vector3 lastCheckpointPos = Vector3.zero;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,8 +83,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Card")){
+        if (collision.CompareTag("Card"))
+        {
             PickUpCard(collision.gameObject);
+        }
+
+        if (collision.CompareTag("Death"))
+        {
+            SceneManager.LoadScene("EndingScreen");
         }
     }
 
@@ -91,7 +99,6 @@ public class PlayerController : MonoBehaviour
         if(collision.CompareTag("GravityZone") && gravityAbility)
         {
             gravityRequest = true;
-
         }
     }
 

@@ -10,6 +10,8 @@ TagManager:
   - GravityZone
   - EnemyWall
   - Weapon
+  - Checkpoint
+  - Death
   layers:
   - Default
   - TransparentFX

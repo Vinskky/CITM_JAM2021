@@ -10,7 +10,6 @@ public class CheckPoint : MonoBehaviour
         if(collision.CompareTag("Player") || collision.CompareTag("Weapon"))
         {
             player.GetComponent<PlayerController>().SetCheckpointPos(this.gameObject.transform.position);
-
         }
     }
 }
