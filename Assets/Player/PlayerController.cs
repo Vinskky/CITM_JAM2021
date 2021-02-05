@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         }
 
         animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-                bool flip = dir.x < 0 ? true : false;
+        bool flip = gravityDir*dir.x < 0 ? true : false;
         this.gameObject.GetComponent<SpriteRenderer>().flipX = flip;
     }
 
