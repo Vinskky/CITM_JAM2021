@@ -9,7 +9,7 @@
 
 You have fallen asleep while trying to learn about outstanding women in science. But what a weid dream! It seems like you are trapped and need to get out.
 
-With the help of 5 scientist, you need to find the escape to wake up. Learn new abilities, solve puzzles and more while learning!
+With the help of 5 scientists, you need to find the escape to wake up. Learn new abilities, solve puzzles and more while learning!
 
 
 ## Usage
@@ -117,7 +117,11 @@ We want to spark more interest in games and other male-dominated fields for the 
 
 ## Links
 
+[Release](https://github.com/Vinskky/CITM_JAM2021/releases/tag/v1.0)
 
+[GitHub Repository](https://github.com/Vinskky/CITM_JAM2021)
+
+[Itch.io submission](https://itch.io/jam/gran-citm-game-jam-4a-edicio/rate/907864)
 
 
 ## License
