@@ -39,30 +39,31 @@ CONTROLS:
 ## Team members:
 
 
- + Alex
+
+ + Alejandro Ávila (Developer)
 
 	GitHub: [Here](https://github.com/Omicrxn)
 
 
- + Bosco
+ + Bosco Barber (Developer and Artist)
 
 	GitHub: [Here](https://github.com/boscobarberesbert)
 
 
 
- + Enric-G. Durán:
+ + Enric-G. Durán (Artist)
 
 	GitHub: [Here](https://github.com/EnricGDV)
 
 
 
- + Núria Lamonja
+ + Núria Lamonja (Designer)
 
 	GitHub: [Here](https://github.com/Needlesslord)
 
 
 
- + Sebas
+ + Sebastián Delgado (Designer)
  
  
 	GitHub: [Here](https://github.com/Vinskky)
@@ -72,12 +73,9 @@ CONTROLS:
 ## Credits:
 
 
-Art: All original art made by Enric-G. Durán.
+Art: All original art made by Enric-G. Durán and Bosco Barber
 
-
-Music and FX:
-
-Ambient piano music by [here](https://freesound.org/people/ShadyDave/sounds/325647/)
+Music and FX: Ambient piano music by [here](https://freesound.org/people/ShadyDave/sounds/325647/)
 
 
 Developed using Unity
@@ -125,7 +123,7 @@ We want to spark more interest in games and other male-dominated fields for the 
 ## License
 
 
-Copyright (c) [2021] []
+Copyright (c) [2021] [Alejandro Ávila, Bosco Barber, Enric-Guillem Durán, Núria Lamonja and Sebastián Delgado]
 
 
 Developed under the MIT licence
