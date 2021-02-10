@@ -21,17 +21,17 @@ CONTROLS:
 	COMPUTER KEYBOARD ONLY
 
 	PLAYER 
-	A 		move left
-	D 		move right
+	A 			move left
+	D 			move right
 	W/Spacebar		jump 
 
 	ATTACKS/PERKS:
 	Left mouse button:	Pillow attack
-	E: move wood box
-	Q:		activate star-platforms
+	E: 			move wood box
+	Q:			activate star-platforms
 	
 	FUNTIONALITY:
-	ESC 		pause	
+	ESC 			pause	
   
 	Mouse hover onto cards to see better description.
 
