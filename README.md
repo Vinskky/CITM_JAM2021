@@ -123,6 +123,8 @@ We want to spark more interest in games and other male-dominated fields for the 
 
 [Itch.io submission](https://itch.io/jam/gran-citm-game-jam-4a-edicio/rate/907864)
 
+[Gameplay Video](https://youtu.be/N908wf0ePxQ)
+
 
 ## License
 
